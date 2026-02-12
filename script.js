@@ -60,16 +60,18 @@ function displayCatHeart() {
     const imageContainer = document.getElementById('image-container');
     imageContainer.innerHTML = '';
     const catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.gif'; // MUST match your file name exactly
+    catHeartImage.src = 'cat-heart.gif'; 
     catHeartImage.alt = 'Cat Heart';
     
     catHeartImage.onload = () => { 
         imageContainer.appendChild(catHeartImage); 
         const msgContainer = document.getElementById('message-container');
         msgContainer.style.display = 'block';
-        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 40px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨<br><span style="font-size: 24px;">No pressure, okay? Just tell me if you want to be my valentine.</span></h2>';
+        // This is the line that adds your message
+        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 35px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨<br><span style="font-size: 20px;">Haha! Alam kong mahirap pindutin yung No doon sa site, kaya sabihan mo na lang ako dito kung ayaw mo talaga, okay? No pressure at all!</span></h2>';
     };
 }
 
 displayCat();
+
 
