@@ -1,23 +1,25 @@
 const noBtn = document.getElementById('no-button');
 
-// Function to move the "No" button randomly
+// Bulletproof Jumping Logic
 function moveButton() {
     noBtn.style.position = 'absolute';
     
+    // Calculate the safe area (viewport size - button size - padding)
     const padding = 20;
     const maxWidth = window.innerWidth - noBtn.offsetWidth - padding;
     const maxHeight = window.innerHeight - noBtn.offsetHeight - padding;
 
-    const randomX = Math.floor(Math.random() * (maxWidth - padding)) + padding;
-    const randomY = Math.floor(Math.random() * (maxHeight - padding)) + padding;
+    // Ensure it doesn't pick a negative number
+    const randomX = Math.max(padding, Math.floor(Math.random() * maxWidth));
+    const randomY = Math.max(padding, Math.floor(Math.random() * maxHeight));
 
-    noBtn.style.left = randomX + 'px';
-    noBtn.style.top = randomY + 'px';
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
 }
 
 noBtn.addEventListener('mouseover', moveButton);
 noBtn.addEventListener('touchstart', (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents accidental clicks on mobile
     moveButton();
 });
 
@@ -32,13 +34,14 @@ function selectOption(option) {
 }
 
 function flashRainbowColors(callback) {
-    var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-    var i = 0;
-    var interval = setInterval(function() {
+    const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+    let i = 0;
+    const interval = setInterval(() => {
         document.body.style.backgroundColor = colors[i];
         i = (i + 1) % colors.length;
     }, 200);
-    setTimeout(function() {
+    
+    setTimeout(() => {
         clearInterval(interval);
         document.body.style.backgroundColor = '#FADADD';
         if (callback) callback();
@@ -46,20 +49,26 @@ function flashRainbowColors(callback) {
 }
 
 function displayCat() {
-    var imageContainer = document.getElementById('image-container');
-    var catImage = new Image();
-    catImage.src = 'cat.gif'; // Uses your uploaded GIF
+    const imageContainer = document.getElementById('image-container');
+    const catImage = new Image();
+    catImage.src = 'cat.gif'; // MUST match your file name exactly
     catImage.alt = 'Cat';
-    catImage.onload = function() { imageContainer.appendChild(catImage); };
+    catImage.onload = () => imageContainer.appendChild(catImage);
 }
 
 function displayCatHeart() {
-    var imageContainer = document.getElementById('image-container');
+    const imageContainer = document.getElementById('image-container');
     imageContainer.innerHTML = '';
-    var catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.gif'; // Uses your second GIF
+    const catHeartImage = new Image();
+    catHeartImage.src = 'cat-heart.gif'; // MUST match your file name exactly
     catHeartImage.alt = 'Cat Heart';
-    catHeartImage.onload = function() { imageContainer.appendChild(catHeartImage); };
+    
+    catHeartImage.onload = () => { 
+        imageContainer.appendChild(catHeartImage); 
+        const msgContainer = document.getElementById('message-container');
+        msgContainer.style.display = 'block';
+        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 40px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨</h2>';
+    };
 }
 
-displayCat(); // Run the initial GIF load
+displayCat();
