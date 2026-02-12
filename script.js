@@ -67,8 +67,9 @@ function displayCatHeart() {
         imageContainer.appendChild(catHeartImage); 
         const msgContainer = document.getElementById('message-container');
         msgContainer.style.display = 'block';
-        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 40px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨</h2>';
+        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 40px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨<br><span style="font-size: 24px;">No pressure, okay? Just tell me if you want to be my valentine.</span></h2>';
     };
 }
 
 displayCat();
+
