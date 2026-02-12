@@ -68,11 +68,12 @@ function displayCatHeart() {
         const msgContainer = document.getElementById('message-container');
         msgContainer.style.display = 'block';
         // This is the line that adds your message
-        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 35px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨<br><span style="font-size: 20px;">Haha, hirap pindutin nung "No" di ba? Pero seriously, no pressure okay? Trip ko lang kasing gawin yan para sayo. Just tell me kung G ka maging Valentine ko this Saturday hehe</span></h2>';
+        msgContainer.innerHTML = '<h2 style="font-family: \'Sacramento\', cursive; font-size: 35px; color: #FB607F; margin-top: 20px;">Yay! Best decision ever! 🥰💖✨<br><span style="font-size: 25px;">Haha, hirap pindutin nung "No" di ba? Pero seriously, no pressure okay? Trip ko lang kasing gawin yan para sayo. Just tell me kung G ka maging Valentine ko this Saturday hehe</span></h2>';
     };
 }
 
 displayCat();
+
 
 
 
